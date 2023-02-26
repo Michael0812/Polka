@@ -1,0 +1,211 @@
+/* Theme Name: Polka */
+/* Author: Michal */
+/* Version: 1.0 */
+/* Description: Polka. Graphic Design */
+
+@import "css/variables.less";
+
+// Background color
+.bg-black {
+    background-color: @black;
+}
+.bg-white {
+    background-color: @white;
+}
+
+.main-section.bg-black {
+    background-color: @black;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        color: @white;
+    }
+    .title {
+        font-size: 3em;
+    }
+}
+
+section.main-section {
+    padding-left: 2em;
+    padding-right: 2em;
+    h1:after {
+        content: "";
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: @pink;
+        display: inline-block;
+        margin-left: 10px;
+        margin-bottom: -5px;
+    }
+}
+
+// Buttons
+.btn.btn-primary {
+    color: #fff;
+    background-color: transparent;
+}
+.btn:focus {
+    outline: none !important;
+    border: none !important;
+}
+.btn:active {
+    outline: none !important;
+    border: none !important;
+}
+.btn:visited {
+    outline: none !important;
+    border: none !important;
+}
+.btn:focus-visible {
+    outline: none !important;
+    border: none !important;
+}
+// Menu
+
+div#demo {
+    width: 100% !important;
+}
+
+
+.wrapper-header {
+
+    .col-wrapper{
+        padding: 20px;
+    }
+    .top-left {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .top-right {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+    }
+    .bottom-left {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        .link {
+            align-items: center;
+            display: inline-flex;
+            padding: 5px;
+            text-decoration: none;
+            transform: rotate(-90deg) translate3d(-300px, 0, 0);
+        }
+        .link__arrow {
+            display: inline-flex;
+            span {
+                background: @white;
+                border-radius: 2px;
+                height: 100px;
+                overflow: hidden;
+                position: relative;
+                width: 14px;
+                z-index: 2;
+                &:nth-child(1) {
+                    transform-origin: left bottom;
+                    transform: rotate(45deg) translate3d(8px, -10px, 0);
+                }
+                &:nth-child(2) {
+                    transform-origin: left bottom;
+                    transform: rotate(-45deg);
+                }
+                &:after {
+                    background: #c3002f;
+                    content: '';
+                    display: block;
+                    height: 100px;
+                    left: 0;
+                    position: absolute;
+                    width: 0;
+                }
+            }
+        }
+        .link__line {
+            background: @white;
+            height: 100px;
+            margin-left: -14px;
+            margin-right: 30px;
+            overflow: hidden;
+            position: relative;
+            width: 150px;
+            z-index: 1;
+            &:after {
+                content: '';
+                display: block;
+                height: @white;
+                left: 80px;
+                position: absolute;
+                width: 70px;
+            }
+        }
+        .link__text {
+            color: #4a4a4a;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+    }
+    .bottom-right {
+        position: absolute;
+        bottom: 10px;
+        right: 40px;
+        .social-icon-wrapper li{
+            display: inline-block;
+            list-style-type: none;
+            padding: 5px;
+
+            .bi:hover{
+                fill: @pink;
+            }
+        }
+    }
+
+}
+
+// Scroller
+.scroller {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroller section {
+    scroll-snap-align: start;
+}
+
+// Media queries
+
+@media only screen and (min-width: 991px) {
+    .main-section.bg-black {
+        .title {
+            width: 50%;
+            font-size: 5em;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .main-section.bg-black {
+        .title {
+            width: 50%;
+            font-size: 5em;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .main-section.bg-black {
+        .title {
+            width: 40%;
+            font-size: 5em;
+        }
+    }
+}
