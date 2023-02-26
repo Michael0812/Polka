@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="offcanvas-body ">
+            <div class="offcanvas-body">
                 <div class="container h-100 d-flex align-items-center">
                     <div class="row">
                         <div class="col">
@@ -124,7 +124,7 @@
 
         </div>
 
-        <div class="container-fluid ">
+        <div class="btn-nav-wrapper">
             <button
                 class="btn btn-nav"
                 type="button"
@@ -145,7 +145,7 @@
         </div>
     </div>
     <div class="col-wrapper bottom-left">
-        <div class="wrapper">
+        <div class="wrapper-circle">
             <div class="circle"></div>
             <div class="circle circle-2"></div>
             <div class="arrow">
