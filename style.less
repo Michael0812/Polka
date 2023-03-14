@@ -13,6 +13,13 @@
     background-color: @white;
 }
 
+a {
+    text-decoration: none;
+}
+button:focus {
+    outline:none !important;
+    box-shadow: none !important;
+  }
 .scroller {
     .main-section.bg-black {
         h1,
@@ -77,16 +84,18 @@ div#demo {
 }
 .offcanvas-body {
     background-color: @black;
-}
-.nav-flex-column {
-    li {
-        color: @white;
-        font-size: 2em;
-        list-style-type: none;
-        line-height: 2.5em;
 
-        &:hover {
-            color: @pink;
+    .nav-flex-column {
+        li a{
+            color: @white;
+            font-size: 2em;
+            list-style-type: none;
+            line-height: 2.5em;
+            padding: 0;
+
+            &:hover {
+                color: @pink;
+            }
         }
     }
 }
@@ -94,16 +103,16 @@ div#demo {
 ul.nav {
     li {
         .nav-link {
-            color: @gray;
+            color: @gray !important;
             padding-left: 1.7rem;
             &:hover {
-                color: @white;
+                color: @white !important;
             }
         }
     }
 }
 .btn-nav-wrapper,
-.wrapper-circle{
+.wrapper-circle {
     mix-blend-mode: difference;
 }
 .social-icon-wrapper li,
@@ -267,11 +276,54 @@ ul.nav {
     scroll-snap-align: start;
 }
 
-    .text-container {
-        color: #fff;
-        mix-blend-mode: difference;
-        z-index: 1;
+.text-container {
+    color: #fff;
+    mix-blend-mode: difference;
+    z-index: 1;
 }
+
+// Our services - home page
+.our-services {
+    .our-services-wrapper {
+        .service-item {
+            .subheading {
+                font-size: 1.2em;
+                text-decoration: none;
+                line-height: 2.5em;
+                color: @black;
+
+                &:hover {
+                    color: @pink;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .our-services-panel {
+        img {
+            width: 65%;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+    }
+}
+
+.panel-img {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+.panel-img img {
+    opacity: 0;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    background-color: #000;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 // Media queries
 
 @media only screen and (min-width: 991px) {
