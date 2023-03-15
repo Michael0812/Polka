@@ -69,12 +69,14 @@ a {
   font-size: 3em;
 }
 section.main-section {
+  min-height: 100vh;
+  height: 100%;
   padding-left: 1em;
   padding-right: 1em;
 }
 section.main-section h1 {
   font-size: 6em;
-  width: 70%;
+  width: 60%;
 }
 section.main-section h1:after {
   content: "";
