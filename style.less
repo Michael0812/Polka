@@ -2,13 +2,20 @@
 /* Author: Michal */
 /* Version: 1.0 */
 /* Description: Polka. Graphic Design */
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import "css/variables.less";
 
 body {
     overflow-y: hidden;
+    font-family: 'Quicksand', sans-serif;
 }
-
+// Width
+.w-90{
+    width: 90%;
+}
+.w-80{
+    width: 80%;
+}
 // Background color
 .bg-black {
     background-color: @black !important;
@@ -43,7 +50,7 @@ section.main-section {
     padding-right: 1em;
     h1 {
         font-size: 6em;
-        width: 600px;
+        width: 70%;
         &:after {
             content: "";
             width: 15px;
@@ -66,8 +73,8 @@ button:focus {
 .btn.btn-primary {
     color: @black;
     background-color: @white;
-    border: 1px solid #fff;
-    padding: 10px 30px;
+    border: 1px solid @white;
+    padding: 0.7em 3em;
 
     &:active,
     &:hover {
@@ -78,6 +85,22 @@ button:focus {
     }
     &:focus {
         border: 1px solid @white !important;
+    }
+}
+.btn.btn-secondary{
+    color: @white;
+    background-color: @black;
+    border: 1px solid @black;
+    padding: 0.7em 3em;
+
+    &:hover {
+        background-color: transparent;
+        color: @black;
+        border: 1px solid @black;
+        border-radius: 1px solid @black !important;
+    }
+    &:focus {
+        border: 1px solid @black !important;
     }
 }
 .btn:focus {
@@ -343,6 +366,13 @@ ul.nav {
     transform: translate(-50%, -50%);
 }
 
+// Testimonials
+.testimonials{
+    .testimonials-panel{
+        padding: 1.5em 1em;
+    }
+}
+
 // Media queries
 
 @media only screen and (min-width: 991px) {
@@ -372,6 +402,16 @@ ul.nav {
     }
 }
 
+@media only screen and (max-width: 992px) {
+    .scroller {
+        .main-section.bg-black {
+            h1 {
+                width: 80%;
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .scroller {
         .main-section.bg-black {
@@ -385,5 +425,9 @@ ul.nav {
             .bottom-left {
                 left: 10%;
             }
+        }
+
+        .w-80{
+            width: 100%;
         }
     }

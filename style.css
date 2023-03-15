@@ -2,8 +2,50 @@
 /* Author: Michal */
 /* Version: 1.0 */
 /* Description: Polka. Graphic Design */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo18E.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o18E.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o18E.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv18E.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv18E.ttf) format('truetype');
+}
 body {
   overflow-y: hidden;
+  font-family: 'Quicksand', sans-serif;
+}
+.w-90 {
+  width: 90%;
+}
+.w-80 {
+  width: 80%;
 }
 .bg-black {
   background-color: #17171A !important;
@@ -32,7 +74,7 @@ section.main-section {
 }
 section.main-section h1 {
   font-size: 6em;
-  width: 600px;
+  width: 70%;
 }
 section.main-section h1:after {
   content: "";
@@ -52,7 +94,7 @@ button:focus {
   color: #17171A;
   background-color: #fff;
   border: 1px solid #fff;
-  padding: 10px 30px;
+  padding: 0.7em 3em;
 }
 .btn.btn-primary:active,
 .btn.btn-primary:hover {
@@ -63,6 +105,21 @@ button:focus {
 }
 .btn.btn-primary:focus {
   border: 1px solid #fff !important;
+}
+.btn.btn-secondary {
+  color: #fff;
+  background-color: #17171A;
+  border: 1px solid #17171A;
+  padding: 0.7em 3em;
+}
+.btn.btn-secondary:hover {
+  background-color: transparent;
+  color: #17171A;
+  border: 1px solid #17171A;
+  border-radius: 1px solid #17171A !important;
+}
+.btn.btn-secondary:focus {
+  border: 1px solid #17171A !important;
 }
 .btn:focus {
   outline: none !important;
@@ -286,6 +343,9 @@ ul.nav li .nav-link:hover {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.testimonials .testimonials-panel {
+  padding: 1.5em 1em;
+}
 @media only screen and (min-width: 991px) {
   .main-section.bg-black .title {
     width: 50%;
@@ -304,6 +364,11 @@ ul.nav li .nav-link:hover {
     font-size: 5em;
   }
 }
+@media only screen and (max-width: 992px) {
+  .scroller .main-section.bg-black h1 {
+    width: 80%;
+  }
+}
 @media only screen and (max-width: 768px) {
   .scroller .main-section.bg-black h1 {
     font-size: 4em;
@@ -311,5 +376,8 @@ ul.nav li .nav-link:hover {
   }
   .wrapper-header .bottom-left {
     left: 10%;
+  }
+  .w-80 {
+    width: 100%;
   }
 }
