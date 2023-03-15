@@ -5,9 +5,13 @@
 
 @import "css/variables.less";
 
+body {
+    overflow-y: hidden;
+}
+
 // Background color
 .bg-black {
-    background-color: @black;
+    background-color: @black !important;
 }
 .bg-white {
     background-color: @white;
@@ -16,10 +20,7 @@
 a {
     text-decoration: none;
 }
-button:focus {
-    outline:none !important;
-    box-shadow: none !important;
-  }
+
 .scroller {
     .main-section.bg-black {
         h1,
@@ -38,8 +39,8 @@ button:focus {
 }
 
 section.main-section {
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
     h1 {
         font-size: 6em;
         width: 600px;
@@ -57,9 +58,27 @@ section.main-section {
 }
 
 // Buttons
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .btn.btn-primary {
-    color: @white;
-    background-color: transparent;
+    color: @black;
+    background-color: @white;
+    border: 1px solid #fff;
+    padding: 10px 30px;
+
+    &:active,
+    &:hover {
+        background-color: transparent;
+        color: @white;
+        border: 1px solid @white;
+        border-radius: 1px solid @white !important;
+    }
+    &:focus {
+        border: 1px solid @white !important;
+    }
 }
 .btn:focus {
     outline: none !important;
@@ -86,10 +105,10 @@ div#demo {
     background-color: @black;
 
     .nav-flex-column {
-        li a{
+        list-style-type: none;
+        li a {
             color: @white;
             font-size: 2em;
-            list-style-type: none;
             line-height: 2.5em;
             padding: 0;
 
@@ -352,3 +371,19 @@ ul.nav {
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .scroller {
+        .main-section.bg-black {
+            h1 {
+                font-size: 4em;
+                width: 100%;
+            }
+        }
+    }
+        .wrapper-header {
+            .bottom-left {
+                left: 10%;
+            }
+        }
+    }
