@@ -370,9 +370,29 @@ ul.nav {
 }
 
 // Testimonials
-.testimonials{
-    .testimonials-panel{
+.testimonials {
+    .testimonials-panel {
         padding: 1.5em 1em;
+    }
+
+    button.carousel-control-prev {
+        position: absolute;
+        top: 100%;
+        left: 75%;
+    }
+    button.carousel-control-next {
+        position: absolute;
+        top: 100%;
+    }
+    .bi.bi-arrow-left,
+    .bi.bi-arrow-right{
+        padding: 7px;
+        border-radius: 100%;
+        background-color: @gray;
+
+        &:hover{
+            background-color: @black;
+        }
     }
 }
 
@@ -429,8 +449,8 @@ ul.nav {
                 left: 10%;
             }
         }
-
-        .w-80{
+        .w-80,
+        .w-90{
             width: 100%;
         }
     }
