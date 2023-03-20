@@ -2,7 +2,8 @@
 /* Author: Michal */
 /* Version: 1.0 */
 /* Description: Polka. Graphic Design */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url(
+    'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&di');
 @import "css/variables.less";
 
 body {
@@ -11,10 +12,10 @@ body {
 }
 
 // Width
-.w-90{
+.w-90 {
     width: 90%;
 }
-.w-80{
+.w-80 {
     width: 80%;
 }
 // Background color
@@ -90,7 +91,7 @@ button:focus {
         border: 1px solid @white !important;
     }
 }
-.btn.btn-secondary{
+.btn.btn-secondary {
     color: @white;
     background-color: @black;
     border: 1px solid @black;
@@ -385,13 +386,74 @@ ul.nav {
         top: 100%;
     }
     .bi.bi-arrow-left,
-    .bi.bi-arrow-right{
+    .bi.bi-arrow-right {
         padding: 7px;
         border-radius: 100%;
         background-color: @gray;
 
-        &:hover{
+        &:hover {
             background-color: @black;
+        }
+    }
+}
+
+//CTA
+
+// FAT
+.faq {
+
+    .faq-wrapper {
+        width: 100%;
+    }
+
+    .faq-wrapper-item {
+        background-color: white;
+        color: @black;
+        border-radius: 5px;
+        margin: 20px 0;
+        border: 1px solid @gray;
+    }
+
+    .question {
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 20px 80px 20px 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &::after{
+            content: "\002B";
+            font-size: 2.2rem;
+            position: absolute;
+            right: 20px;
+            color: @gray;
+            transition: 0.2s;
+        }
+    }
+    .question.active::after {
+        transform: rotate(45deg);
+        color: @black;
+    }
+
+    .answercont {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .answer {
+        padding: 0 20px 20px;
+        line-height: 1.5rem;
+    }
+
+    @media screen and (max-width: 790px) {
+        html {
+            font-size: 14px;
+        }
+        .wrapper {
+            width: 80%;
         }
     }
 }
@@ -444,13 +506,13 @@ ul.nav {
             }
         }
     }
-        .wrapper-header {
-            .bottom-left {
-                left: 10%;
-            }
-        }
-        .w-80,
-        .w-90{
-            width: 100%;
+    .wrapper-header {
+        .bottom-left {
+            left: 10%;
         }
     }
+    .w-80,
+    .w-90 {
+        width: 100%;
+    }
+}

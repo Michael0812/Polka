@@ -6,35 +6,30 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 300;
-  font-display: swap;
   src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkKEo18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
   src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
   src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
   src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv18E.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
   src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkBgv18E.ttf) format('truetype');
 }
 body {
@@ -366,6 +361,54 @@ ul.nav li .nav-link:hover {
 .testimonials .bi.bi-arrow-left:hover,
 .testimonials .bi.bi-arrow-right:hover {
   background-color: #17171A;
+}
+.faq .faq-wrapper {
+  width: 100%;
+}
+.faq .faq-wrapper-item {
+  background-color: white;
+  color: #17171A;
+  border-radius: 5px;
+  margin: 20px 0;
+  border: 1px solid #434343;
+}
+.faq .question {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 20px 80px 20px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.faq .question::after {
+  content: "\002B";
+  font-size: 2.2rem;
+  position: absolute;
+  right: 20px;
+  color: #434343;
+  transition: 0.2s;
+}
+.faq .question.active::after {
+  transform: rotate(45deg);
+  color: #17171A;
+}
+.faq .answercont {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.faq .answer {
+  padding: 0 20px 20px;
+  line-height: 1.5rem;
+}
+@media screen and (max-width: 790px) {
+  .faq html {
+    font-size: 14px;
+  }
+  .faq .wrapper {
+    width: 80%;
+  }
 }
 @media only screen and (min-width: 991px) {
   .main-section.bg-black .title {

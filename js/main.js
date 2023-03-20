@@ -24,7 +24,6 @@ const newTextDelay = 3000; // Delay between current and next text
 let textArrayIndex = 0;
 let charIndex = 0;
 
-
 function type() {
     if (charIndex < textArray[textArrayIndex].length) {
         if (!cursorSpan.classList.contains("typing")) 
@@ -72,3 +71,28 @@ document.addEventListener(
             setTimeout(type, newTextDelay + 250);
         }
     );
+
+// FAQ
+
+let question = document.querySelectorAll(".question");
+
+question.forEach(question => {
+    question.addEventListener("click", event => {
+        const active = document.querySelector(".question.active");
+        if (active && active !== question) {
+            active
+                .classList
+                .toggle("active");
+            active.nextElementSibling.style.maxHeight = 0;
+        }
+        question
+            .classList
+            .toggle("active");
+        const answer = question.nextElementSibling;
+        if (question.classList.contains("active")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            answer.style.maxHeight = 0;
+        }
+    })
+})
