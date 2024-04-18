@@ -1,98 +1,76 @@
-//Panel hover effect
-document.addEventListener("DOMContentLoaded", function (event) {
-    let serviceItem = document.querySelectorAll(".service-item a");
-    let imgPanel = document.querySelectorAll(".panel-img img");
+document.addEventListener('DOMContentLoaded', function () {
+    (function () {
+        var listItems = document.querySelectorAll('#subtitle-list .subtitle');
+        var displayTextElement = document.getElementById('display-text');
+        var nextButtons = document.querySelectorAll('.next-button'); // Define nextButtons here
+        var pages = document.querySelectorAll('.page'); // Define pages here
 
-    for (let i = 0; i < serviceItem.length; i++) {
-        serviceItem[i].addEventListener('mouseenter', () => {
-            imgPanel[i].style.opacity = 1;
+        if (listItems.length === 0) {
+            console.error('No list items found');
+            return;
+        }
+
+        var activeListItem = listItems[0]; // The first li element is active by default
+
+        // Make the first li element active by default
+        if (activeListItem.querySelector('a')) {
+            activeListItem
+                .querySelector('a')
+                .style
+                .color = '#7224B3';
+        }
+
+        if (activeListItem.querySelector('.hidden-info')) {
+            displayTextElement.innerHTML = activeListItem
+                .querySelector('.hidden-info')
+                .innerHTML;
+        }
+
+        listItems.forEach(function (listItem) {
+            listItem.addEventListener('mouseover', function () {
+                var hiddenInfo = listItem.querySelector('.hidden-info');
+                if (hiddenInfo) {
+                    displayTextElement.innerHTML = hiddenInfo.innerHTML;
+                }
+
+                if (activeListItem.querySelector('a')) {
+                    activeListItem
+                        .querySelector('a')
+                        .style
+                        .color = ''; // Reset the color of the previously active li element
+                }
+
+                if (listItem.querySelector('a')) {
+                    listItem
+                        .querySelector('a')
+                        .style
+                        .color = '#7224B3'; // Make the hovered li element active
+                }
+
+                activeListItem = listItem; // Update the active li element
+            });
         });
-        serviceItem[i].addEventListener('mouseleave', () => {
-            imgPanel[i].style.opacity = 0;
+
+        nextButtons.forEach(function (button, index) {
+            button.addEventListener('click', function () {
+                var inputs = Array.from(
+                    pages[index].querySelectorAll('input[required], textarea[required], select[required]')
+                );
+                var isValid = inputs.every(function (input) {
+                    return input.value !== '';
+                });
+
+                if (isValid) {
+                    pages[index]
+                        .classList
+                        .remove('active');
+                    pages[index + 1]
+                        .classList
+                        .add('active');
+                } else {
+                    alert('Please fill out all required fields before proceeding.');
+                }
+            });
         });
-    }
+    })();
 });
-
-// Heading typing effect
-const typedTextSpan = document.querySelector(".typed-text");
-const cursorSpan = document.querySelector(".cursor");
-
-const textArray = ["ideas", "dreams", "goals"];
-const typingDelay = 200;
-const erasingDelay = 100;
-const newTextDelay = 3000; // Delay between current and next text
-let textArrayIndex = 0;
-let charIndex = 0;
-
-function type() {
-    if (charIndex < textArray[textArrayIndex].length) {
-        if (!cursorSpan.classList.contains("typing")) 
-            cursorSpan
-                .classList
-                .add("typing");
-        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(type, typingDelay);
-    } else {
-        cursorSpan
-            .classList
-            .remove("typing");
-        setTimeout(erase, newTextDelay);
-    }
-}
-
-function erase() {
-    if (charIndex > 0) {
-        if (!cursorSpan.classList.contains("typing")) 
-            cursorSpan
-                .classList
-                .add("typing");
-        typedTextSpan.textContent = textArray[textArrayIndex].substring(
-            0,
-            charIndex - 1
-        );
-        charIndex--;
-        setTimeout(erase, erasingDelay);
-    } else {
-        cursorSpan
-            .classList
-            .remove("typing");
-        textArrayIndex++;
-        if (textArrayIndex >= textArray.length) 
-            textArrayIndex = 0;
-        setTimeout(type, typingDelay + 1100);
-    }
-}
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () { // On DOM Load initiate the effect
-        if (textArray.length) 
-            setTimeout(type, newTextDelay + 250);
-        }
-    );
-
-// FAQ
-
-let question = document.querySelectorAll(".question");
-
-question.forEach(question => {
-    question.addEventListener("click", event => {
-        const active = document.querySelector(".question.active");
-        if (active && active !== question) {
-            active
-                .classList
-                .toggle("active");
-            active.nextElementSibling.style.maxHeight = 0;
-        }
-        question
-            .classList
-            .toggle("active");
-        const answer = question.nextElementSibling;
-        if (question.classList.contains("active")) {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-        } else {
-            answer.style.maxHeight = 0;
-        }
-    })
-})
