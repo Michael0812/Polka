@@ -2,11 +2,21 @@
 /* Author: Michal */
 /* Version: 1.0 */
 /* Description: Polka. Graphic Design */
-@import url(
-    'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&di');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&di');
+@font-face {
+    font-family: 'Typo Round Bold Demo';
+    src: url('./fonts/Typo_Round_Bold_Demo.otf') format('opentype');
+
+}
 @import "css/variables.less";
-
-
+.bg-image {
+    background-image: url('/wp-content/themes/Polka/images/pattern.png');
+    background-position: left top;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 body {
     font-family: 'Quicksand', sans-serif;
 }
@@ -36,6 +46,7 @@ section.main-section {
         font-size: 7em;
         width: 100%;
         z-index: 99999;
+        font-family: 'Typo Round Bold Demo', sans-serif;
         &:after {
             content: "";
             width: 15px;
@@ -57,6 +68,12 @@ section.main-section {
 .purple-text{
     color: @purple;
     font-weight: bold;
+}
+// ----- Home Page - about ----- //
+.home-about{
+    p{
+        line-height: 2rem;
+    }
 }
 
 // ----- Width ----- //
@@ -177,6 +194,16 @@ section.main-section {
         span {
             color: @white;
         }
+    }
+}
+.btn-purple{
+    background-color: @purple;
+    color: @black;
+    border: 1px solid @purple;
+    &:hover{
+        background: transparent;
+        border: 1px solid @purple;
+        color: @white;
     }
 }
 .btn.hover-slide-right {
@@ -510,7 +537,10 @@ ul.nav {
     }
 
     .header-images-wrapper {
-        padding: 15%;
+        padding: 0%;
+        position: relative;
+        left: -16%;
+        top: 10%;
 
         .header-image-overlay {
             position: relative;
@@ -530,51 +560,95 @@ ul.nav {
 // ----- End Header ----- //
 
 // ----- Services - Home Page ----- //
-.our-services {
-    #display-text{
-        .content-wrapper-bottom{
-            h4{
-                color: @purple;
-            }
-            .ul-wrapper{
-                ul{
-                    width: 100%;
-                    padding: 0px;
-                    li{
-                        color: @white;
-                        padding: 0.5rem 0;
-                    }
-                }
-            }
+
+// ----- End Services - Home Page ----- //
+
+.home-services{
+    h2{
+         &:after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: @purple;
+            display: inline-block;
+            margin-left: 10px;
+            margin-bottom: -5px;
         }
     }
 
-    .content-wrapper-bottom {
-        ul {
-            list-style-type: none;
-            li.subtitle {
-                text-decoration: none;
-                line-height: 2em;
-                font-size: 2em;
-                color: @white;
-                
-            }
-        }
+    .card-container {
+        width: 100%;
+        overflow: hidden;
     }
     
-}
+    .content-card {
+        white-space: nowrap;
+        transition: all 1s cubic-bezier(0.68, 0, 0.265, 1);
+        will-change: transform;
+    }
+    
+    .slider-card {
+        width: calc(100% - 25%); // Subtract the left and right margins from the width
+        background-color: @dark-gray;
+        // height:250px;
+        margin:20px;
+        border-radius: 10px;
+        display: inline-block;
+        cursor: move;
+    }
+    
+    .card-details {
+        padding: 3rem; // Apply the same padding to all sides
+        white-space: normal;
+        h3 {
+            padding-bottom: 2rem; // Keep this as it is
+        }
+    }
 
-#subtitle-list {
-    padding: 0;
-    .subtitle:hover {
-        color: @purple;
+    ul.slider-circles {
+        li { 
+            display: inline-block; 
+            text-align: center;
+            border-radius:50%;
+            background-color:#03A9F4;
+            height:8px;
+            cursor: pointer;
+            width:8px;
+            &.active {
+                background-color: transparent;
+                border: 2px solid #283593;
+                box-sizing: border-box;
+                height:10px;
+                width:10px;
+            }
+        }
+    }
+    .slider-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .arrows {
+        display: flex;
+        margin-top: 50px;
+        gap: 20;
+    }
+    
+    .arrow {
+        background: none;
+        width: 45px;
+        margin: 15px;
+        font-size: 1.3rem;
+        height: 45px;
+        align-items: center;
+        border: 1px solid @white;
+        border-radius: 100%;
+        color: @white;
+        cursor: pointer;
     }
 }
-
-#subtitle-list .subtitle:not(:hover) {
-    color: initial;
-}
-// ----- End Services - Home Page ----- //
 
 
 // ----- Enquiry Form ----- //
@@ -752,7 +826,19 @@ section.privacy{
 
 // ----- Media Queries ----- //
 
-@media only screen and (min-width: 991px) {
+@media only screen and (min-width: 992px) {
+    .home-services{
+            h2{
+                padding-right: 35%;
+            }
+        .content-wrapper{
+         padding-right: 10rem;   
+        }
+    }
+
+    p{
+        font-size: 1.1rem;
+    }
     .offcanvas-body {
         .contact-details-wrapper{
             text-align: right;
